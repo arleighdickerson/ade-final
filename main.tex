@@ -6,7 +6,7 @@
 \usepackage{amssymb}
 \usepackage{graphicx}
 
-\title{Floquet Systems}
+\title{Advanced Differentials Final Paper}
 
 \author{Arleigh Dickerson}
 
@@ -84,5 +84,31 @@ The number $\mu_0$ is a Floquet multiplier of the Floquet system $x' = A(t)x$ if
 
 \subsection{Proof}
 
+By assuming $\mu_0$ is a Floquet multiplier of $x' = A(t)x$, we can see that (SHOW THIS) $\mu_0$ is an eigenvalue of 
+\begin{equation*}
+    C := \Phi^{-1}(0)\Phi(\omega)
+\end{equation*}
+where $\Phi$ is a fundamental matrix of $x' = A(t)x$. Let $x_0$ be an eigenvector corresponging to $mu_0$ and define the vector function $x$ by $x(t) = \Phi(t)x_0$ with $t \in \mathbb{R}$.
+
+Then $x$ is a nontrivial solution of $x' = A(t)x$ and \begin{equation*}
+\begin{split}
+    x(t + \omega) &= \Phi(t + \omega) x_0 \\
+                  &= \Phi(t) C x_0\\
+                  &= \Phi(t) \mu_0 x_0 \\
+                  &= \mu_0 x(t) \\
+\end{split}
+\end{equation*}
+for all $t \in \mathbb{R}$.
+
+Conversely, let us assume that there is a nontrivial solution $x$ such that \begin{equation*}
+    x(t + \omega) = \mu_0 x(t)
+\end{equation*}
+for all $t \in \mathbb{R}$. Let $\Psi$ be a fundamental matrix of our Floquet system, then \begin{equation*}
+    x(t) = \Psi(t) y_0
+\end{equation*}
+for all $t \in \mathbb{R}$ and some nontrivial vector $y_0$. By Floquet's theorem the matrix function $\Psi(\cdot + \omega)$ is also a fundamental matrix. Hence $x(t + \omega) = \mu_0 x(t)$, so $\Psi(t + \omega)y_0 = \mu_0 \Psi(t) y_0$. Therefore,\begin{equation*}
+    \Psi(t) D y_0 = \Psi(t) \mu_0 y_0
+\end{equation*}
+where $D := \Psi^{-1}(0) \Psi(\omega)$. It follows that $D y_0 = \mu_0 y_0$, and so $\mu_0$ is an eigenvalue of $D$ and therefore a Floquet multiplier of our Floquet system.
 \end{document}
 
