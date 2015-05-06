@@ -30,6 +30,51 @@ Let $\mu_1$, $\mu_2$,\ldots, $\mu_n$ be the Floquet multipliers of the Floquet s
 \end{enumerate}
 
 \subsection{Proof}
+The following proof is for the two-dimensional case. In the proof of Floquet's theorem, $B$ was picked such that $e^{B \omega} = C$. 
+Also, notice that the Jordan canonical form theorem gives us matrices $M$ and $J$ such that $B = MJM^{-1}$, where either $J = \begin{bmatrix}
+    \rho_1 & 0 \\
+    0 & \rho_2
+\end{bmatrix}$ or $J = \begin{bmatrix}
+    \rho_1 & 1 \\
+    0 & \rho_1
+\end{bmatrix}$ where $\rho_1$, $\rho_2$ are the eigenvalues of $B$. It follows that (show why, properties of $e^A$)
+\begin{equation*}
+\begin{split}
+    C &= e^{B\omega}\\
+      &= e^{MJM^{-1}}\\
+      &= M e^{J\omega} M^{-1}\\
+      &= M K M^{-1}\\
+\end{split}
+\end{equation*}
+where either $K = \begin{bmatrix}
+    e^{\rho_{1}\omega} & 0 \\
+    0 & e^{\rho_{2}\omega}\\
+\end{bmatrix}$, or $K = \begin{bmatrix}
+    e^{\rho_{1}\omega} & \omega e^{\rho_{1}\omega}\\
+    0 & e^{\rho_{1}\omega}\\
+\end{bmatrix}$.
+Since the eigenvalues of $K$ are the same (show why exercise 2.14) as the eigenvalues of $C$, we get that the Floquet multipliers are $\mu_i = e^{\rho_{i}\omega}$ with $i = 1,2$ where it is possible that $\rho_1 = \rho_2$. Since $|\mu_i| = e^{Re(\rho_i)\omega}$, we have that
+\begin{equation*}
+\begin{split}
+    |\mu_i| < 1 &\text{ iff } Re(\rho_i) < 0 \\
+    |\mu_i| = 1 &\text{ iff } Re(\rho_i) = 0 \\
+    |\mu_i| > 1 &\text{ iff } Re(\rho_i) > 0\text{.} \\
+\end{split}
+\end{equation*}
+
+By theorem 2.71 the equation 
+\begin{equation*}
+    x(t) = P(t)y(t)
+\end{equation*}
+gives a one-to-one correspondence between solutions of the Floquet system $x' = A(t)x$ and $y' = By$. Note that there is a constant $Q_1 > 0$ so that (what kind of norm is this?) 
+\begin{equation*}
+    \Vert x(t) \Vert = \Vert P(t)y(t) \Vert \leq \Vert P(t) \Vert \Vert y(t) \Vert  \leq Q_{1} \Vert y(t) \Vert \text{,}
+\end{equation*}
+for $t \in \mathbb{R}$ and since $y(t) = P^{-1}(t)x(t)$ there is a constant $Q_2 > 0$ such that 
+\begin{equation*}
+    \Vert y(t) \Vert = \Vert P^{-1}(t)x(t) \Vert \leq \Vert P^{-1}(t) \Vert \Vert x(t) \Vert  \leq Q_{2} \Vert x(t) \Vert \text{,}
+\end{equation*}
+for $t \in \mathbb{R}$.
 
 \section{Theorem 2.73}
 
