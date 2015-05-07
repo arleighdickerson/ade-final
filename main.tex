@@ -16,10 +16,10 @@
 \maketitle
 
 \section{Introduction}
-Hello, friends. Today we will be learning about trivial and nontrivial solutions to Floquet systems. Let's begin.
+Hello, friends. Today we will be learning about trivial and nontrivial solutions to Floquet systems and how the existence of a nontrivial solution relates to the system's Floquet multipliers. Let's begin.
 \section{Theorem 2.72}
 
-In this theorem, we see some of the qualitative properties of the trivial solution. Specifially, this theorem examines how the value of Floquet multipliers influences the trivial solution's stability or lack thereof. To accomplish this end, we will eventually break our argument up into three cases based upon the value of $|\mu_i|$ and link it to the Stability Theorem (2.49).
+In this theorem, we see some of the qualitative properties of the trivial solution. Specifially, this theorem examines how the value of Floquet multipliers influences the trivial solution's stability or lack thereof. To accomplish this end, we will and link our claim to the Stability Theorem (2.49).
 
 \subsection{Theorem}
 
@@ -30,15 +30,15 @@ Let $\mu_1$, $\mu_2$,\ldots, $\mu_n$ be the Floquet multipliers of the Floquet s
 \end{enumerate}
 
 \subsection{Proof}
-The following proof is for the two-dimensional case. In proving Floquet's theorem, we chose an arbitrary $B$ such that $e^{B \omega} = C$. 
+The following proof is for the two-dimensional case. In proving Floquet's theorem, recall that we chose an arbitrary $B$ such that $e^{B \omega} = C$. 
 Also, notice that the Jordan canonical form theorem gives us matrices $M$ and $J$ such that $B = MJM^{-1}$, where either $J = \begin{bmatrix}
     \rho_1 & 0 \\
     0 & \rho_2
 \end{bmatrix}$ or $J = \begin{bmatrix}
     \rho_1 & 1 \\
     0 & \rho_1
-\end{bmatrix}$ where $\rho_1$, $\rho_2$ are the eigenvalues of $B$. Recall that if a matrix $Y$ is invertible, then $e^{Y X Y^{-1}} = Y e^{X} Y^{-1}.$
-With this property of the matrix exponential function in mind, it follows that
+\end{bmatrix}$ where $\rho_1$, $\rho_2$ are the eigenvalues of $B$. Finally, remember that if a matrix $Y$ is invertible, then $e^{Y X Y^{-1}} = Y e^{X} Y^{-1}.$
+With these properties in mind, it follows that
 \begin{equation*}
 \begin{split}
     C &= e^{B\omega}\\
@@ -54,7 +54,8 @@ where either $K = \begin{bmatrix}
     e^{\rho_{1}\omega} & \omega e^{\rho_{1}\omega}\\
     0 & e^{\rho_{1}\omega}\\
 \end{bmatrix}$.
-Since the eigenvalues of $K$ are the same (show why exercise 2.14) as the eigenvalues of $C$, we get that the Floquet multipliers are $\mu_i = e^{\rho_{i}\omega}$ with $i = 1,2$ where it is possible that $\rho_1 = \rho_2$. Since $|\mu_i| = e^{Re(\rho_i)\omega}$, we have that
+
+Because the eigenvalues of $K$ are the same as the eigenvalues of $C$, we can see that the Floquet multipliers are $\mu_i = e^{\rho_{i}\omega}$ with $i = 1,2$ given that it is possible that $\rho_1 = \rho_2$. With the fact that $|\mu_i| = e^{Re(\rho_i)\omega}$ in mind, we show that 
 \begin{equation*}
 \begin{split}
     |\mu_i| < 1 &\text{ iff } Re(\rho_i) < 0 \\
@@ -81,23 +82,24 @@ for $t \in \mathbb{R}$. To conclude this proof, we must use some points from the
     \item If all the eigenvalues of $A$ have negative real parts, then the trivial solution of $x' = Ax$ is globally asymptotically stable on $[0,\infty)$.
 \end{enumerate}
 
+By applying the Stability Theorem to $B$ we can show that trivial solution's stability is as we claimed.
+
 \section{Theorem 2.73}
 
-DESCRIBE WHAT WE'RE GOING TO DO AND HOW IT IS DONE
+In this theorem, we show some properties of Floquet multipliers as they relate to nontrivial solutions of a Floquet system. We also establish a condition for a nontrivial periodic solution to exist.
 
 \subsection{Theorem}
 
-The number $\mu_0$ is a Floquet multiplier of the Floquet system $x' = A(t)x$ if and only if there is a nontrivial solution $x$ such that $x(t + \omega) = \mu_0 x(t)$ for all $t \in \mathbb{R}$. Consequently, the Floquet system has a nontrivial periodic solution of period $\omega$ if and only if $\mu_0 = 1$ is a floquet multiplier.
+Our claim is that $\mu_0$ is a Floquet multiplier of the Floquet system $x' = A(t)x$ if and only if there is a nontrivial solution $x$ such that $x(t + \omega) = \mu_0 x(t)$ for all $t \in \mathbb{R}$. Consequently, the Floquet system has a nontrivial periodic solution of period $\omega$ if and only if $\mu_0 = 1$ is a Floquet multiplier.
 
 \subsection{Proof}
 
-By assuming $\mu_0$ is a Floquet multiplier of $x' = A(t)x$, we can see that (SHOW THIS) $\mu_0$ is an eigenvalue of 
+First, let us assume that $\mu_0$ is a Floquet multiplier of $x' = A(t)x$. Then, by definition $\mu_0$ must be an eigenvalue of 
 \begin{equation*}
     C := \Phi^{-1}(0)\Phi(\omega)
 \end{equation*}
-where $\Phi$ is a fundamental matrix of $x' = A(t)x$. Let $x_0$ be an eigenvector corresponding to $\mu_0$ and define the vector function $x$ by $x(t) = \Phi(t)x_0$ with $t \in \mathbb{R}$.
-
-Then $x$ is a nontrivial solution of $x' = A(t)x$ and \begin{equation*}
+where $\Phi$ is a fundamental matrix of $x' = A(t)x$. If we let $x_0$ be the eigenvector corresponding to $\mu_0$ and define a vector function $x(t) = \Phi(t)x_0$ with $t \in \mathbb{R}$, 
+then we can see that $x$ is a nontrivial solution of $x' = A(t)x$ and \begin{equation*}
 \begin{split}
     x(t + \omega) &= \Phi(t + \omega) x_0 \\
                   &= \Phi(t) C x_0\\
@@ -107,15 +109,21 @@ Then $x$ is a nontrivial solution of $x' = A(t)x$ and \begin{equation*}
 \end{equation*}
 for all $t \in \mathbb{R}$.
 
-Conversely, let us assume that there is a nontrivial solution $x$ such that \begin{equation*}
+Conversely, we can also assume that there is a nontrivial solution $x$ such that \begin{equation*}
     x(t + \omega) = \mu_0 x(t)
 \end{equation*}
 for all $t \in \mathbb{R}$. Let $\Psi$ be a fundamental matrix of our Floquet system, then \begin{equation*}
     x(t) = \Psi(t) y_0
 \end{equation*}
-for all $t \in \mathbb{R}$ and some nontrivial vector $y_0$. By Floquet's theorem the matrix function $\Psi(\cdot + \omega)$ is also a fundamental matrix. Hence $x(t + \omega) = \mu_0 x(t)$, so $\Psi(t + \omega)y_0 = \mu_0 \Psi(t) y_0$. Therefore,\begin{equation*}
+for all $t \in \mathbb{R}$ and some nontrivial vector $y_0$. Because Floquet's theorem says that the matrix function $\Psi(\cdot + \omega)$ is also a fundamental matrix, $x(t + \omega) = \mu_0 x(t)$, so $\Psi(t + \omega)y_0 = \mu_0 \Psi(t) y_0$. Therefore,\begin{equation*}
     \Psi(t) D y_0 = \Psi(t) \mu_0 y_0
 \end{equation*}
 where $D := \Psi^{-1}(0) \Psi(\omega)$. It follows that $D y_0 = \mu_0 y_0$, and so $\mu_0$ is an eigenvalue of $D$ and therefore a Floquet multiplier of our Floquet system.
+
+\section{Closing Remarks}
+Theorem 2.72 gave us qualitative information about the trivial solution. Specifically, we saw that the trivial solution is always globally asymptotically stable on $[0,\infty)$ and may be stable or unstable on $[0,\infty)$ depending upon the values of the Floquet multipliers. We accomplished this by linking Theorem 2.72 to the Stability Theorem, Theorem 2.49.
+
+Theorem 2.73 showed us that $\mu_0$ is a Floquet multiplier of a Floquet system if and only if a nontrivial solution exists with $x(t+\omega) = \mu_0 x(t)$. We also showed that a nontrivial periodic solution exists if and only if $\mu_0 = 1$ is a Floquet multiplier. 
+
 \end{document}
 
